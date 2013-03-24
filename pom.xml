@@ -14,6 +14,9 @@
 		<spring.version>3.2.2.RELEASE</spring.version>
 		<slf4j.version>1.7.2</slf4j.version>
 		<logFileLoc>D:\other\logs\logFile12</logFileLoc>
+		<struts.version>2.1.8</struts.version>
+		<mysql.version>5.1.9</mysql.version>
+		<hibernate.version>4.2.0.CR2</hibernate.version>
 	</properties>
 
 	<dependencies>
@@ -69,6 +72,44 @@
 			<artifactId>spring-webmvc</artifactId>
 			<version>${spring.version}</version>
 		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-orm</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+
+		<!-- Struts 2 -->
+		<dependency>
+			<groupId>org.apache.struts</groupId>
+			<artifactId>struts2-core</artifactId>
+			<version>${struts.version}</version>
+		</dependency>
+		<!-- Struts 2 + Spring plugins -->
+		<dependency>
+			<groupId>org.apache.struts</groupId>
+			<artifactId>struts2-spring-plugin</artifactId>
+			<version>${struts.version}</version>
+		</dependency>
+		<!-- MySQL database driver -->
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>${mysql.version}</version>
+		</dependency>
+
+		<!-- Hibernate core -->
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-core</artifactId>
+			<version>${hibernate.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-search</artifactId>
+			<version>4.2.0.Final</version>
+		</dependency>
+
 	</dependencies>
 
 	<build>
