@@ -23,7 +23,7 @@ public class ClinicCRUDAction extends ActionSupport {
 	private ClinicBo clinicBo;
 	
 
-	@Resource
+//	@Resource
 	public void setClinicBo(ClinicBo clinicBo){
 		this.clinicBo = clinicBo;
 	}

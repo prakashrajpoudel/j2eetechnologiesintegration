@@ -5,10 +5,14 @@ package np.com.clinic.business;
 
 import java.io.Serializable;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
 /**
  * @author prakash.poudel
  *
  */
+ @Entity
 public class Clinic implements Serializable {
 	
 	/**
@@ -19,6 +23,7 @@ public class Clinic implements Serializable {
 	private String name;
 	private String code;
 	
+	@Id
 	public int getId() {
 		return id;
 	}
