@@ -10,7 +10,7 @@
 
 		<action name="listClinic" class="np.com.clinic.presentation.ClinicCRUDAction"
 			method="listClinic">
-			<result name="success">jsp/clinic.jsp</result>
+			<result name="success">/WEB-INF/pages/clinic.jsp</result>
 		</action>
 
 	</package>
