@@ -7,7 +7,7 @@ import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 import np.com.clinic.business.Clinic;
 import np.com.clinic.dao.ClinicDao;
 
-public class HibernateClinicDaoImp extends HibernateDaoSupport implements ClinicDao {
+public class HibernateClinicDaoImpl extends HibernateDaoSupport implements ClinicDao {
 
 	@SuppressWarnings("unchecked")
 	@Override

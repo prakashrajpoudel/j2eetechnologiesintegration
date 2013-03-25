@@ -8,7 +8,7 @@
 
 	<bean id="clinicBo" class="np.com.clinic.bo.implementation.ClinicBoImpl" />
 
-	<bean id="clinicDao" class="np.com.clinic.dao.HibernateClinicDaoImpl">
+	<bean id="clinicDao" class="np.com.clinic.dao.hibernate.HibernateClinicDaoImpl">
 		<property name="sessionFactory" ref="sessionFactory" />
 	</bean>
 
