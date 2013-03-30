@@ -8,4 +8,5 @@ http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
 	<import resource="HibernateSessionFactory.xml" />
 
 	<import resource="applicationContext.xml" />
+	<import resource="spring-security.xml" />
 </beans>

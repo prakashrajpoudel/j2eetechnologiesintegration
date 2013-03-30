@@ -8,5 +8,6 @@
 	<packaging>pom</packaging>
 	<modules>
 		<module>clinic</module>
+		<module>clinic-access</module>
 	</modules>
 </project>

@@ -34,6 +34,6 @@ public class ClinicCRUDAction extends ActionSupport {
 	
 	public String listClinic() throws Exception {
 		clinicList = clinicBo.getAllClinics();
-		return "success";
+		return SUCCESS;
 	}
 }

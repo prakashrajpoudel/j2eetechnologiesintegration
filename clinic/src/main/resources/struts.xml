@@ -5,6 +5,12 @@
 
 <struts>
 	<constant name="struts.devMode" value="true" />
+	<!-- Not required, but trying to exclude these url to map with spring -->
+	<constant name="struts.action.excludePattern" value="/j_spring_security_check" />
+	<constant name="struts.action.excludePattern"
+		value="/j_spring_security_check.*,.*\\.j_spring_security_check" />
+		
+
 
 	<package name="default" namespace="/" extends="struts-default">
 
