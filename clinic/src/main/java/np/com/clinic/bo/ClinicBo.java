@@ -10,5 +10,7 @@ public interface ClinicBo {
 	public List<Clinic> getAllClinics();
 	
 	public void setClinicDao(ClinicDao clinicDao);
+	
+	public void saveClinic(Clinic clinic);
 
 }

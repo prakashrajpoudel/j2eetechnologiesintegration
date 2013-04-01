@@ -9,16 +9,24 @@
 	<constant name="struts.action.excludePattern" value="/j_spring_security_check" />
 	<constant name="struts.action.excludePattern"
 		value="/j_spring_security_check.*,.*\\.j_spring_security_check" />
-		
+
 
 
 	<package name="default" namespace="/" extends="struts-default">
 
 		<action name="listClinic" class="np.com.clinic.presentation.ClinicCRUDAction"
 			method="listClinic">
-			<result name="success">/WEB-INF/pages/clinic.jsp</result>
+			<result name="success">/WEB-INF/pages/clinicList.jsp</result>
 		</action>
 
+		<action name="addClinic" class="np.com.clinic.presentation.ClinicCRUDAction"
+			method="addClinic">
+			<result name="success">/WEB-INF/pages/editClinic.jsp</result>
+		</action>
+				<action name="saveClinic" class="np.com.clinic.presentation.ClinicCRUDAction"
+			method="saveClinic">
+			<result name="success" type="redirect">listClinic</result>
+		</action>
 	</package>
 
 </struts>

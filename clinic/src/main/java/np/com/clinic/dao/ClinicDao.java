@@ -14,5 +14,7 @@ import np.com.clinic.business.Clinic;
 public interface ClinicDao {
 	
 	public List<Clinic> getAllClinics();
+	
+	public void saveClinic(Clinic clinic);
 
 }

@@ -29,5 +29,10 @@ public class HibernateClinicDaoImpl implements ClinicDao {
 				"from " + Clinic.class.getName());
 		return query.list();
 	}
+	
+	@Override
+	public void saveClinic(Clinic clinic) {
+		getSessionFactory().getCurrentSession().saveOrUpdate(clinic);
+	}
 
 }

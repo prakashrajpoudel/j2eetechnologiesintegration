@@ -31,4 +31,9 @@ public class ClinicBoImpl implements ClinicBo {
 	public void setClinicDao(ClinicDao clinicDao) {
 		this.clinicDao = clinicDao;
 	}
+	
+	@Override
+	public void saveClinic(Clinic clinic) {
+		clinicDao.saveClinic(clinic);
+	}
 }
