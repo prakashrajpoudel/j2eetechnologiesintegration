@@ -27,7 +27,7 @@ public class ClinicBoImpl implements ClinicBo {
 		return clinicDao.getAllClinics();
 	}
 	
-//	@Resource
+	@Resource
 	public void setClinicDao(ClinicDao clinicDao) {
 		this.clinicDao = clinicDao;
 	}

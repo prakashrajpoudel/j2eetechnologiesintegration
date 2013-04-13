@@ -11,16 +11,11 @@
 
 <tx:annotation-driven transaction-manager="transactionManager"/>
 
-	<bean id="clinicAction" class="np.com.clinic.presentation.ClinicCRUDAction" >
-		<property name="clinicBo" ref="clinicBo"/>
-	</bean>
+	<bean id="clinicAction" class="np.com.clinic.presentation.ClinicCRUDAction" />
+		
 
-	<bean id="clinicBo" class="np.com.clinic.bo.implementation.ClinicBoImpl" >
-		<property name="clinicDao" ref="clinicDao" />
-	</bean>
+	<bean id="clinicBo" class="np.com.clinic.bo.implementation.ClinicBoImpl" />
 
-	<bean id="clinicDao" class="np.com.clinic.dao.hibernate.HibernateClinicDaoImpl">
-		<property name="sessionFactory" ref="sessionFactory" />
-	</bean>
+	<bean id="clinicDao" class="np.com.clinic.dao.hibernate.HibernateClinicDaoImpl" />
 
 </beans>

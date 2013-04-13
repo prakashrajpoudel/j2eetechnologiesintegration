@@ -8,5 +8,6 @@
 	<packaging>pom</packaging>
 	<modules>
 		<module>clinic</module>
+<module>clinic-populate</module>
 	</modules>
 </project>

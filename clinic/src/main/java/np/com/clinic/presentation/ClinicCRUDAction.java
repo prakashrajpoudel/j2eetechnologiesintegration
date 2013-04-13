@@ -25,7 +25,7 @@ public class ClinicCRUDAction extends ActionSupport implements ModelDriven<Clini
 	private Clinic clinic = new Clinic();
 	
 
-//	@Resource
+	@Resource
 	public void setClinicBo(ClinicBo clinicBo){
 		this.clinicBo = clinicBo;
 	}
