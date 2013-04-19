@@ -1,5 +1,5 @@
 j2eetechnologiesintegration
-===========================
+============================
 
 Some j2ee technologies integration. Mostly maven work
 
