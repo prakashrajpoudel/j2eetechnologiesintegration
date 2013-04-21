@@ -13,15 +13,17 @@
 
 
 	<package name="default" namespace="/" extends="struts-default">
-
+<result-types>
+  <result-type name="tiles" class="org.apache.struts2.views.tiles.TilesResult"/>
+</result-types>
 		<action name="listClinic" class="np.com.clinic.presentation.ClinicCRUDAction"
 			method="listClinic">
-			<result name="success">/WEB-INF/pages/clinicList.jsp</result>
+			<result name="success" type="tiles">/clinicList.tiles</result>
 		</action>
 
 		<action name="addClinic" class="np.com.clinic.presentation.ClinicCRUDAction"
 			method="addClinic">
-			<result name="success">/WEB-INF/pages/editClinic.jsp</result>
+			<result name="success" type="tiles">/editClinic.tiles</result>
 		</action>
 				<action name="saveClinic" class="np.com.clinic.presentation.ClinicCRUDAction"
 			method="saveClinic">

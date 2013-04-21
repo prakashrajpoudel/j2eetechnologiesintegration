@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+ 
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"
+       "http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
+<tiles-definitions>
+    <definition name="baseLayout" template="/WEB-INF/pages/layout/baseLayout.jsp">
+        <put-attribute name="title" value="" />
+        <put-attribute name="header" value="/WEB-INF/pages/layout/header.jsp" />
+        <put-attribute name="menu" value="/WEB-INF/pages/layout/menu.jsp" />
+        <put-attribute name="body" value="" />
+        <put-attribute name="footer" value="/WEB-INF/pages/layout/footer.jsp" />
+    </definition>
+    <definition name="/clinicList.tiles" extends="baseLayout">
+        <put-attribute name="title" value="Clinic List" />
+        <put-attribute name="body" value="/WEB-INF/pages/clinicList.jsp" />
+    </definition>
+    <definition name="/editClinic.tiles" extends="baseLayout">
+        <put-attribute name="title" value="Add Clinic" />
+        <put-attribute name="body" value="/WEB-INF/pages/editClinic.jsp" />
+    </definition>
+</tiles-definitions>

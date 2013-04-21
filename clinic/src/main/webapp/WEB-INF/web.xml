@@ -34,7 +34,13 @@
 	<url-pattern>/*</url-pattern>
   </filter-mapping>
  
-
+<listener>
+    <listener-class>org.apache.tiles.extras.complete.CompleteAutoloadTilesListener</listener-class>
+</listener>
+<context-param>
+    <param-name>tilesDefinitions</param-name>
+    <param-value>/WEB-INF/tiles.xml</param-value>
+</context-param>
   <listener>
     <listener-class>
       org.springframework.web.context.ContextLoaderListener
