@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<project name="clinic" default="sync" basedir=".">
+
+	<target name="copy">
+		<copy todir="./target/cargo/configurations/tomcat7/webapps/ROOT">
+			<fileset dir="src/main/webapp"/>
+		</copy>
+	</target>
+	
+	<target name="sync">
+		<delete dir="./target/cargo/configurations/tomcat7/work"/>
+		<sync todir="./target/cargo/configurations/tomcat7/webapps/ROOT" overwrite="true">
+			<fileset dir="target/clinic-0.0.1-SNAPSHOT"/>
+		</sync>
+		<copy todir="./target/cargo/configurations/tomcat7/webapps/ROOT" overwrite="true">
+			<fileset dir="web"/>
+		</copy>
+	</target>
+</project> 

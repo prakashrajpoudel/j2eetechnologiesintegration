@@ -20,6 +20,12 @@
 	</properties>
 
 	<dependencies>
+	<dependency>
+	<groupId>mysql</groupId>
+	<artifactId>mysql-connector-java</artifactId>
+	<version>5.1.6</version>
+	<scope>runtime</scope>
+</dependency>
 		<dependency>
 			<groupId>commons-lang</groupId>
 			<artifactId>commons-lang</artifactId>
@@ -148,44 +154,137 @@
 		</dependency>
 
 	</dependencies>
+	
 
-	<build>
-		<resources>
-			<resource>
-				<directory>src/main/resources</directory>
-				<filtering>false</filtering>
-			</resource>
-		</resources>
+	<profiles>
+		<profile>
+			<id>developer</id>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
 
-		<plugins>
-			<plugin>
-				<artifactId>maven-compiler-plugin</artifactId>
-				<version>3.0</version>
+			<properties>
+				<!-- by default the debugger is running on port 8081, change to something 
+					else if you want to -->
+				<debugger.port>8081</debugger.port>
+				<tomcat.version>1.0</tomcat.version>
+			</properties>
+
+			<build>
+				<plugins>
+
+					<plugin>
+						<artifactId>maven-compiler-plugin</artifactId>
+						<version>3.0</version>
+						<configuration>
+							<source>1.6</source>
+							<target>1.6</target>
+						</configuration>
+					</plugin>
+					
+					<plugin>
+						<groupId>org.codehaus.cargo</groupId>
+						<artifactId>cargo-maven2-plugin</artifactId>
+						<version>1.1.2</version>
+						<configuration>
+							<type>standalone</type>
+							<container>
+							
+								<containerId>tomcat7x</containerId>
+								
+								<!-- 
+								    <zipUrlInstaller>
+         							 <url>http://a-inet01:8100/apache-tomcat-7.0.25.zip</url>
+     							   </zipUrlInstaller>
+     							-->
+								<artifactInstaller>
+									<groupId>com.bishu</groupId>
+									<artifactId>tomcat7</artifactId>
+									<version>${tomcat.version}</version>
+								</artifactInstaller>
+								<systemProperties>
+									<!-- these get plugged into server.xml -->
+									<server.ip.address>127.0.0.1</server.ip.address>
+									<server.jvm.route>1</server.jvm.route>
+									<server.session.timeout>30</server.session.timeout>
+									<server.syslog.level>WARN</server.syslog.level>
+									<server.proxy.name></server.proxy.name>
+									<server.proxy.port></server.proxy.port>
+									<server.user.database>${project.build.directory}/cargo/installs/tomcat7-${tomcat.version}/conf/tomcat-users.xml</server.user.database>
+								</systemProperties>
+							</container>
+							<configuration>
+								<home>${project.build.directory}/cargo/configurations/tomcat7
+								</home>
+								<configfiles>
+									<configfile>
+										<file>${project.build.directory}/cargo/installs/tomcat7-${tomcat.version}/conf/server.xml
+										</file>
+										<todir>conf</todir>
+									</configfile>
+									<configfile>
+										<file>${project.build.directory}/cargo/installs/tomcat7-${tomcat.version}/conf/tomcat-users.xml
+										</file>
+										<todir>conf</todir>
+									</configfile>
+									<configfile>
+										<file>${project.build.directory}/../config/local/catalina.properties
+										</file>
+										<todir>conf</todir>
+									</configfile>
+									<configfile>
+										<file>${project.build.directory}/../config/local/server.xml
+                                        </file>
+										<todir>conf</todir>
+									</configfile>
+									<configfile>
+										<file>${project.build.directory}/../config/local/setenv.bat
+                                        </file>
+										<todir>bin</todir>
+									</configfile>
+									<configfile>
+										<file>${project.build.directory}/../config/local/setenv.sh
+                                        </file>
+										<todir>bin</todir>
+									</configfile>
+									<files>
+										<file>${project.build.directory}/../config/local/log4j.properties
+										</file>
+										<todir>../../installs/tomcat7-${tomcat.version}/lib</todir>
+										<tofile>log4j.properties</tofile>
+										<overwrite>true</overwrite>
+									</files>
+								</configfiles>
+								
+								<properties>
+									<cargo.jvmargs>
+										-Xdebug
+										-Xrunjdwp:transport=dt_socket,server=y,suspend=n,address=${debugger.port}
+										-Xnoagent
+										-Djava.compiler=NONE
+									</cargo.jvmargs>
+								</properties>
+							</configuration>
+						</configuration>
+					</plugin>
+					
+				<plugin>
+				<groupId>org.mortbay.jetty</groupId>
+				<artifactId>maven-jetty-plugin</artifactId>
 				<configuration>
-					<source>1.6</source>
-					<target>1.6</target>
+					<contextPath>/sample</contextPath>
+					<scanIntervalSeconds>500</scanIntervalSeconds>
+					<connectors>
+						<connector implementation="org.mortbay.jetty.nio.SelectChannelConnector">
+							<port>9999</port>
+							<maxIdleTime>6000000</maxIdleTime>
+						</connector>
+					</connectors>
 				</configuration>
 			</plugin>
-			<plugin>
-				<artifactId>maven-war-plugin</artifactId>
-				<version>2.1.1</version>
-			</plugin>
-			<plugin>
-				<groupId>org.apache.tomcat.maven</groupId>
-				<artifactId>tomcat7-maven-plugin</artifactId>
-				<version>2.0</version>
-				<configuration>
-					<url>http://localhost:8080/manager/text</url>
-					<server>TomcatServer</server>
-					<path>/clinic</path>
-					<username>manager</username>
-					<password>manager</password>
-					<update>true</update>
-				</configuration>
-			</plugin>
-
-		</plugins>
-
-	</build>
+				</plugins>
+			</build>
+		</profile>
+	</profiles>
 
 </project>
