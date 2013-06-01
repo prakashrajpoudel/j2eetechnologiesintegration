@@ -28,7 +28,7 @@ public class UserController extends ActionSupport implements ModelDriven<User> {
 	}
 	
 	public String saveUser() throws Exception {
-		userService.saveUser(user);
+//		userService.saveUser(user);
 		return SUCCESS;
 	}
 	

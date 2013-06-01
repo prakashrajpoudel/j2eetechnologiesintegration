@@ -2,10 +2,13 @@ package np.com.userconfig.daoImpl;
 
 import java.util.List;
 import javax.annotation.Resource;
-import org.hibernate.Query;
-import org.hibernate.SessionFactory;
+
 import np.com.userconfig.business.User;
 import np.com.userconfig.dao.UserDao;
+
+import org.hibernate.Query;
+import org.hibernate.SessionFactory;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  * 
@@ -13,7 +16,7 @@ import np.com.userconfig.dao.UserDao;
  * 
  */
 
-
+@Transactional
 public class UserDaoImpl implements UserDao {
 
 	private SessionFactory sessionFactory;
