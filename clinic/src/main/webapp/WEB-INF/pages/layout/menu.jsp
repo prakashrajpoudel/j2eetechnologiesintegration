@@ -9,3 +9,8 @@
 	<li><s:url id="addURL" action="addClinic" /> <s:a
 			href="%{addURL}">Add Clinic</s:a></li>
 </ul>
+
+<ul>
+	<li><s:url id="addURL" action="addUser" /> <s:a
+			href="%{addURL}">Add User</s:a></li>
+</ul>

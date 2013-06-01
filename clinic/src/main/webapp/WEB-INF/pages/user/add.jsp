@@ -1,5 +1,1 @@
-<html>
-<body>
-	<h1>Message : ${message}</h1>	
-</body>
-</html>
+this is the test add page

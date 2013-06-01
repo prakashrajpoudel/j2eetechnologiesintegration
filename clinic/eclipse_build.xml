@@ -3,7 +3,7 @@
 
 	<target name="copy">
 		<copy todir="./target/cargo/configurations/tomcat7/webapps/ROOT">
-			<fileset dir="src/main/webapp"/>
+			<fileset dir="src/main"/>
 		</copy>
 	</target>
 	

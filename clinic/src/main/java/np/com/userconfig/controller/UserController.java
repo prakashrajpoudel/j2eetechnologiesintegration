@@ -5,8 +5,8 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
-import np.com.clinic.bo.ClinicBo;
-import np.com.clinic.business.Clinic;
+import np.com.userconfig.business.User;
+import np.com.userconfig.service.UserService;
 
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
@@ -14,51 +14,44 @@ import com.opensymphony.xwork2.ModelDriven;
 /**
  * 
  * @author bishu
- *
+ * 
  */
-public class UserController extends ActionSupport implements ModelDriven<Clinic> {
-
-	/**
-	 * 
-	 */
+public class UserController extends ActionSupport implements ModelDriven<User> {
 	private static final long serialVersionUID = 1L;
-	private List<Clinic> clinicList = new ArrayList<Clinic>();
-	private ClinicBo clinicBo;
-	private Clinic clinic = new Clinic();
-	
+	private UserService userService;
+	private User user;
+	private List<User> userList = new ArrayList<User>();
 
 	@Resource
-	public void setClinicBo(ClinicBo clinicBo){
-		this.clinicBo = clinicBo;
+	public void setUserService(UserService userService) {
+		this.userService = userService;
 	}
 	
-	public List<Clinic> getClinicList() {
-		return clinicList;
-	}
-	
-	public String listClinic() throws Exception {
-		clinicList = clinicBo.getAllClinics();
+	public String saveUser() throws Exception {
+		userService.saveUser(user);
 		return SUCCESS;
 	}
 	
-	public String addClinic() throws Exception {
+	public String listUser() throws Exception{
+		userList = userService.getAllUsers();
 		return SUCCESS;
 	}
 	
-	public String saveClinic() throws Exception {
-		clinicBo.saveClinic(clinic);
-		return SUCCESS;
-	}
-	@Override
-	public Clinic getModel() {
-		return clinic;
+	public List<User> getUserList() {
+		return userList;
 	}
 
-	public Clinic getClinic() {
-		return clinic;
+	public void setUserList(List<User> userList) {
+		this.userList = userList;
 	}
-	public void setClinic(Clinic clinic) {
-		this.clinic = clinic;
+
+	public String addUser() throws Exception {
+		return SUCCESS;
 	}
-	
+
+	@Override
+	public User getModel() {
+		return user;
+	}
+
 }
