@@ -22,8 +22,9 @@
 	<bean id="clinicDao" class="np.com.clinic.dao.hibernate.HibernateClinicDaoImpl">
 		<property name="sessionFactory" ref="sessionFactory" />
 	</bean>
+	
+	
 	<bean id="userAction" class="np.com.userconfig.controller.UserController" />
 	<bean id="userService" class="np.com.userconfig.serviceImpl.UserServiceImpl" />
-	<bean id="userDao" class="np.com.userconfig.daoImp.UserDaoImpll" />
-
+	<bean id="userDao" class="np.com.userconfig.daoImpl.UserDaoImpl" />
 </beans>
