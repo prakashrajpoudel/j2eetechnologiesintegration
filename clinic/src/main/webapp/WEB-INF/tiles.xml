@@ -30,7 +30,7 @@
 		<put-attribute name="body" value="/WEB-INF/pages/editClinic.jsp" />
 	</definition>
 
-	<definition name="/userList.tiles" extends="loginLayout">
+	<definition name="/userList.tiles" extends="baseLayout">
 		<put-attribute name="title" value="User List" />
 		<put-attribute name="body" value="/WEB-INF/pages/user/list.jsp" />
 	</definition>

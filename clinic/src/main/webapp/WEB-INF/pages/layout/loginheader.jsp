@@ -3,8 +3,6 @@
 <%@ taglib prefix="s" uri="/struts-tags"%>
 <link rel="stylesheet" type="text/css" href="<s:url value="/style/masterstyle.css"/>"/> 
 		<div id="header">
-			<div class="innertube">
-				<h1>Clinic Management</h1>
-			</div>
+			  <img src="<s:url value="/images/header.jpg"/>" alt="Clinic" height="130px" >
 		</div>
 		

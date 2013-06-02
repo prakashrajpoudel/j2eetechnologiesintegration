@@ -1,8 +1,11 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
 <%@ taglib prefix="s" uri="/struts-tags"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <link rel="stylesheet" type="text/css" href="<s:url value="/menu/pro_dropdown_2.css"/>"/> 
 <script src="<s:url value="/menu/stuHover.js"/>" type="text/javascript"></script>
+
+<div id="systemMenu">
 
 <ul id="nav">
 	<li class="top"><s:url id="listClinicUrl" action="listClinic" /> <s:a href="%{listClinicUrl}" cssClass="top_link"><span>Home</span></s:a></li>
@@ -46,4 +49,8 @@
 			</li>
 		</ul>
 	</li>
+	<li><a href="<c:url value="j_spring_security_logout" />" class="logout"> Logout</a></li>
 </ul>
+
+
+</div>

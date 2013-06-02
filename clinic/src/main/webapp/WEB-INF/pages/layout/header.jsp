@@ -6,7 +6,7 @@
 		<div id="header">
 			
 			<div class="innertube">
-				<h1>Clinic Management<a href="<c:url value="j_spring_security_logout" />" > Logout</a></h1>
+			  <img src="<s:url value="/images/header.jpg"/>" alt="Clinic" height="130px" >
 			</div>
 		</div>
 		
