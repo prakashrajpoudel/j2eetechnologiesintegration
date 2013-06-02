@@ -46,6 +46,17 @@
 			method="saveUser">
 			<result name="success" type="redirect">listUser</result>
 		</action>
+		
+		<!-- Login Controller -->
+		<action name="login" class="np.com.authentication.controller.LoginController"
+			method="login">
+			<result name="success" type="tiles">/login.tiles</result>
+		</action>
+		
+		<action name="loginFailed" class="np.com.authentication.controller.LoginController"
+			method="loginFailed">
+			<result name="success" type="tiles">/login.tiles</result>
+		</action>
 	</package>
 
 </struts>
