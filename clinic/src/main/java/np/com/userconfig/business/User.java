@@ -1,20 +1,32 @@
 package np.com.userconfig.business;
 
+import java.util.Date;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
 /**
  * 
  * @author bishu
- * 
  * simple user pojo
- *
  */
+@Entity
 public class User {
+	
 	private int userId;
 	private String fname;
 	private String mname;
 	private String lname;
 	private String status;
+	private Date createdDt;
 	private int createdBy;
 	
+	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
+	 @Column(name="user_id")
 	public int getUserId() {
 		return userId;
 	}
@@ -45,6 +57,8 @@ public class User {
 	public void setStatus(String status) {
 		this.status = status;
 	}
+	
+	@Column(name="created_by")
 	public int getCreatedBy() {
 		return createdBy;
 	}
@@ -52,52 +66,12 @@ public class User {
 		this.createdBy = createdBy;
 	}
 	
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + createdBy;
-		result = prime * result + ((fname == null) ? 0 : fname.hashCode());
-		result = prime * result + ((lname == null) ? 0 : lname.hashCode());
-		result = prime * result + ((mname == null) ? 0 : mname.hashCode());
-		result = prime * result + ((status == null) ? 0 : status.hashCode());
-		result = prime * result + userId;
-		return result;
+	@Column(name="created_dt")
+	public Date getCreatedDt() {
+		return createdDt;
 	}
-	
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		User other = (User) obj;
-		if (createdBy != other.createdBy)
-			return false;
-		if (fname == null) {
-			if (other.fname != null)
-				return false;
-		} else if (!fname.equals(other.fname))
-			return false;
-		if (lname == null) {
-			if (other.lname != null)
-				return false;
-		} else if (!lname.equals(other.lname))
-			return false;
-		if (mname == null) {
-			if (other.mname != null)
-				return false;
-		} else if (!mname.equals(other.mname))
-			return false;
-		if (status == null) {
-			if (other.status != null)
-				return false;
-		} else if (!status.equals(other.status))
-			return false;
-		if (userId != other.userId)
-			return false;
-		return true;
+	public void setCreatedDt(Date createdDt) {
+		this.createdDt = createdDt;
 	}
+
 }

@@ -1,0 +1,73 @@
+
+body{
+margin:0;
+padding:0;
+line-height: 1.5em;
+}
+
+b{font-size: 110%;}
+em{color: red;}
+
+#maincontainer{
+width: 100%; /*Width of main container*/
+margin: 0 auto; 
+}
+
+#header{
+background: green;
+height: 50px;
+}
+
+#header h1{
+margin: 0;
+padding-top: 15px;
+}
+
+#middlecontent{
+min-height: 450px;
+margin-top: 0px;
+}
+
+#maincontent{
+margin-left: 12%; /*Set left margin to LeftColumnWidth*/
+}
+
+#leftcolumn{
+float: left;
+width: 12%; /*Width of left column*/
+background: #C8FC98;
+min-height: 500px;
+}
+
+#footer{
+clear: left;
+width: 100%;
+color: #FFF;
+text-align: center;
+padding: 4px 0;
+height: 35px;
+background-color: gray;
+}
+
+#footer a{
+color: #FFFF80;
+}
+
+.innertube{
+margin: 10px; /*Margins for inner DIV inside each column (to provide padding)*/
+margin-top: 0;
+}
+
+<!-- CSS FOR THE MENU BAR  
+#trans-nav { list-style-type: none; height: 40px; padding: 0; margin: 0; width: 100% }
+#trans-nav { list-style-type: none; height: 40px; padding: 0; margin: 0; }
+#trans-nav li { float: left; position: relative; padding: 0; line-height: 40px; background: #5a8078 url(nav-bg.png) repeat-x 0 0; }
+#trans-nav li:hover { background-position: 0 -40px; }
+#trans-nav li a { display: block; padding: 0 15px; color: #fff; text-decoration: none; }
+#trans-nav li a:hover { color: #a3f1d7; }
+#trans-nav li ul { opacity: 0; position: absolute; left: 0; width: 8em; background: #63867f; list-style-type: none; padding: 0; margin: 0; }
+#trans-nav li:hover ul { opacity: 1; }
+#trans-nav li ul li { float: none; position: static; height: 0; line-height: 0; background: none; }
+#trans-nav li:hover ul li { height: 30px; line-height: 30px; }
+#trans-nav li ul li a { background: #63867f; }
+#trans-nav li ul li a:hover { background: #5a8078; }

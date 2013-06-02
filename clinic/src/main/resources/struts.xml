@@ -11,7 +11,6 @@
 		value="/j_spring_security_check.*,.*\\.j_spring_security_check" />
 
 
-
 	<package name="default" namespace="/" extends="struts-default">
 <result-types>
   <result-type name="tiles" class="org.apache.struts2.views.tiles.TilesResult"/>
@@ -25,9 +24,27 @@
 			method="addClinic">
 			<result name="success" type="tiles">/editClinic.tiles</result>
 		</action>
-				<action name="saveClinic" class="np.com.clinic.presentation.ClinicCRUDAction"
+		
+		<action name="saveClinic" class="np.com.clinic.presentation.ClinicCRUDAction"
 			method="saveClinic">
 			<result name="success" type="redirect">listClinic</result>
+		</action>
+		
+		
+		<!--  User Controllers -->
+		<action name="listUser" class="np.com.userconfig.controller.UserController"
+			method="listUser">
+			<result name="success" type="tiles">/userList.tiles</result>
+		</action>
+
+		<action name="addUser" class="np.com.userconfig.controller.UserController"
+			method="addUser">
+			<result name="success" type="tiles">/editUser.tiles</result>
+		</action>
+		
+		<action name="saveUser" class="np.com.userconfig.controller.UserController"
+			method="saveUser">
+			<result name="success" type="redirect">listUser</result>
 		</action>
 	</package>
 

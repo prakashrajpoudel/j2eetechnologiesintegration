@@ -7,19 +7,13 @@
 <title><tiles:insertAttribute name="title" ignore="true" /></title>
 </head>
 <body>
+<tiles:insertAttribute name="header" />
+<tiles:insertAttribute name="menu" />
 	<table align="center">
 		<tr>
-			<td height="250"><tiles:insertAttribute name="menu" /></td>
-			<td height="30"><tiles:insertAttribute name="header" /></td>
-		</tr>
-		<tr>
-
 			<td width="350" colspan="2"><tiles:insertAttribute name="body" /></td>
 		</tr>
-		<tr>
-			<td height="30" colspan="2"><tiles:insertAttribute name="footer" />
-			</td>
-		</tr>
 	</table>
+	<tiles:insertAttribute name="footer" />
 </body>
 </html>

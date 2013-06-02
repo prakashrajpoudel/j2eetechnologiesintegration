@@ -19,4 +19,13 @@
         <put-attribute name="title" value="Add Clinic" />
         <put-attribute name="body" value="/WEB-INF/pages/editClinic.jsp" />
     </definition>
+    
+     <definition name="/userList.tiles" extends="baseLayout">
+        <put-attribute name="title" value="User List" />
+        <put-attribute name="body" value="/WEB-INF/pages/user/list.jsp" />
+    </definition>
+    <definition name="/editUser.tiles" extends="baseLayout">
+        <put-attribute name="title" value="Add User" />
+        <put-attribute name="body" value="/WEB-INF/pages/user/add.jsp" />
+    </definition>
 </tiles-definitions>
