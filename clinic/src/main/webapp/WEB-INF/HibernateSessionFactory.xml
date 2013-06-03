@@ -24,8 +24,8 @@
 		</property>
 		<property name="packagesToScan">
 			<list>
-				<value>np.com.clinic.business</value>
-				<value>np.com.userconfig.business</value>
+				<value>np.com.business.clinic</value>
+				<value>np.com.business.userconfig</value>
 			</list>
 		</property>
 	</bean><!-- Hibernate session factory -->

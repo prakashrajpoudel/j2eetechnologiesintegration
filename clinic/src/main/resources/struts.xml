@@ -12,48 +12,58 @@
 
 
 	<package name="default" namespace="/" extends="struts-default">
-<result-types>
-  <result-type name="tiles" class="org.apache.struts2.views.tiles.TilesResult"/>
-</result-types>
-		<action name="listClinic" class="np.com.clinic.presentation.ClinicCRUDAction"
+	<result-types>
+  		<result-type name="tiles" class="org.apache.struts2.views.tiles.TilesResult"/>
+	</result-types>
+		<!-- Clinic CRUD -->
+		<action name="listClinic" class="np.com.presentation.clinic.ClinicManagementAction"
 			method="listClinic">
 			<result name="success" type="tiles">/clinicList.tiles</result>
 		</action>
 
-		<action name="addClinic" class="np.com.clinic.presentation.ClinicCRUDAction"
+		<action name="addClinic" class="np.com.presentation.clinic.ClinicManagementAction"
 			method="addClinic">
 			<result name="success" type="tiles">/editClinic.tiles</result>
 		</action>
+
+		<action name="editClinic" class="np.com.presentation.clinic.ClinicManagementAction"
+			method="editClinic">
+			<result name="success" type="tiles">/editClinic.tiles</result>
+		</action>
 		
-		<action name="saveClinic" class="np.com.clinic.presentation.ClinicCRUDAction"
+		<action name="deleteClinic" class="np.com.presentation.clinic.ClinicManagementAction"
+			method="deleteClinic">
+			<result name="success" type="redirect">listClinic</result>
+		</action>
+				
+		<action name="saveClinic" class="np.com.presentation.clinic.ClinicManagementAction"
 			method="saveClinic">
 			<result name="success" type="redirect">listClinic</result>
 		</action>
-		
-		
+
 		<!--  User Controllers -->
-		<action name="listUser" class="np.com.userconfig.controller.UserController"
+		<action name="listUser" class="np.com.presentation.userconfig.UserManagementAction"
 			method="listUser">
 			<result name="success" type="tiles">/userList.tiles</result>
 		</action>
 
-		<action name="addUser" class="np.com.userconfig.controller.UserController"
+		<action name="addUser" class="np.com.presentation.userconfig.UserManagementAction"
 			method="addUser">
 			<result name="success" type="tiles">/editUser.tiles</result>
 		</action>
 		
-		<action name="saveUser" class="np.com.userconfig.controller.UserController"
+		<action name="saveUser" class="np.com.presentation.userconfig.UserManagementAction"
 			method="saveUser">
 			<result name="success" type="redirect">listUser</result>
 		</action>
 		
 		<!-- Login Controller -->
-		<action name="login" class="np.com.authentication.controller.LoginController"
+		<action name="login" class="np.com.presentation.authentication.LoginManagementAction"
 			method="login">
 			<result name="success" type="tiles">/login.tiles</result>
 		</action>
 		
-		<action name="loginFailed" class="np.com.authentication.controller.LoginController"
+		<action name="loginFailed" class="np.com.presentation.authentication.LoginManagementAction"
 			method="loginFailed">
 			<result name="success" type="tiles">/login.tiles</result>
 		</action>
