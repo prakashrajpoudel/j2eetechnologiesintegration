@@ -6,7 +6,6 @@
 <script src="<s:url value="/menu/stuHover.js"/>" type="text/javascript"></script>
 
 <div id="systemMenu">
-
 <ul id="nav">
 	<li class="top"><s:url id="listClinicUrl" action="listClinic" /> <s:a href="%{listClinicUrl}" cssClass="top_link"><span>Home</span></s:a></li>
 	<li class="top"><s:url id="listClinicUrl" action="listClinic" /> <s:a href="%{listClinicUrl}" cssClass="top_link"><span class="down">Clinic</span></s:a>
@@ -51,6 +50,4 @@
 	</li>
 	<li><a href="<c:url value="j_spring_security_logout" />" class="logout"> Logout</a></li>
 </ul>
-
-
 </div>
