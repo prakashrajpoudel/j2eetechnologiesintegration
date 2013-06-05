@@ -1,7 +1,5 @@
 <%@ taglib prefix="s" uri="/struts-tags"%>
 
-<div id="middlecontent">
-	<div id="maincontent">
 		<h2>Add User</h2>
 		<s:form action="saveUser">
 			<s:push value="user">
@@ -14,5 +12,3 @@
 			</s:push>
 			<s:submit />
 		</s:form>
-	</div>
-</div>

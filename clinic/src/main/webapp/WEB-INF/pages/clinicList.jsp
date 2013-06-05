@@ -1,8 +1,6 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib prefix="s" uri="/struts-tags"%>
 
-<div id="middlecontent">
-	<div id="maincontent">
 <s:form>
 	<s:textfield name="name" label="Search :" />
 	<s:submit />
@@ -38,5 +36,3 @@
 		no clinic found.
 	</c:otherwise>
 </c:choose>
-	</div>
-</div>

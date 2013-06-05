@@ -7,12 +7,20 @@
 <title><tiles:insertAttribute name="title" ignore="true" /></title>
 </head>
 <body>
-<tiles:insertAttribute name="header" />
-	<table align="center">
-		<tr>
-			<td width="350" colspan="2"><tiles:insertAttribute name="body" /></td>
-		</tr>
-	</table>
-	<tiles:insertAttribute name="footer" />
+
+	<div id="container">
+		<div id="header">
+			<tiles:insertAttribute name="header" />
+		</div>
+		<div id="middlecontent">
+			<div id="maincontent">
+				<tiles:insertAttribute name="body" />
+			</div>
+		</div>
+		<div id="footer">
+			<tiles:insertAttribute name="footer" />
+		</div>
+	</div>
 </body>
 </html>
+
