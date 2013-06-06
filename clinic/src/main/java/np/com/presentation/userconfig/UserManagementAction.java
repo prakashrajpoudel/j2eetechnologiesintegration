@@ -6,6 +6,7 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import np.com.business.clinic.Clinic;
 import np.com.business.userconfig.User;
 import np.com.service.userconfig.UserService;
 

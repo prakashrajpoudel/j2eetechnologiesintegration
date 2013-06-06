@@ -1,12 +1,22 @@
 package np.com.business.userconfig;
 
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.Table;
+
+import np.com.business.clinic.Clinic;
 
 /**
  * 
@@ -14,9 +24,10 @@ import javax.persistence.Id;
  * simple user pojo
  */
 @Entity
+@Table(name="user")
 public class User {
 	
-	private int userId;
+	private int user_id;
 	private String fname;
 	private String mname;
 	private String lname;
@@ -24,14 +35,17 @@ public class User {
 	private Date createdDt;
 	private int createdBy;
 	
+	private Set<Clinic> clinicList = new HashSet<Clinic>(0);
+
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	 @Column(name="user_id")
-	public int getUserId() {
-		return userId;
+	public int getUser_id() {
+		return user_id;
 	}
-	public void setUserId(int userId) {
-		this.userId = userId;
+	
+	public void setUser_id(int user_id) {
+		this.user_id = user_id;
 	}
 	public String getFname() {
 		return fname;
@@ -58,9 +72,11 @@ public class User {
 		this.status = status;
 	}
 	
+	
 	@Column(name="created_by")
 	public int getCreatedBy() {
 		return createdBy;
+		
 	}
 	public void setCreatedBy(int createdBy) {
 		this.createdBy = createdBy;
@@ -74,4 +90,19 @@ public class User {
 		this.createdDt = createdDt;
 	}
 
+
+	@ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	@JoinTable(name = "clinic_user", joinColumns = { 
+			@JoinColumn(name = "user_id") }, 
+			inverseJoinColumns = { @JoinColumn(name = "id"
+					) })
+	public Set<Clinic> getClinicList() {
+		return clinicList;
+	}
+
+	public void setClinicList(Set<Clinic> clinicList) {
+		this.clinicList = clinicList;
+	}
+	
+	
 }
