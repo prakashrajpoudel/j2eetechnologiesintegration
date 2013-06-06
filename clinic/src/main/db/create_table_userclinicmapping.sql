@@ -9,17 +9,17 @@
 -- Table structure for table `clinic_user`
 --
 
-CREATE TABLE IF NOT EXISTS `user` (
-  `user_id` int(11) NOT NULL AUTO_INCREMENT,
-  `fname` varchar(50) NOT NULL,
-  `mname` varchar(50) NOT NULL,
-  `lname` varchar(50) NOT NULL,
-  `status` varchar(2) NOT NULL,
-  `created_dt` datetime DEFAULT NULL,
-  `updated_dt` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00' ON UPDATE CURRENT_TIMESTAMP,
-  `created_by` int(11) NOT NULL,
-  PRIMARY KEY (`user_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+CREATE TABLE IF NOT EXISTS `clinic_user` (
+  `clinic_id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `mapped_dt` datetime DEFAULT NULL,
+  `updated_dt` timestamp NULL DEFAULT '0000-00-00 00:00:00' ON UPDATE CURRENT_TIMESTAMP,
+  `status` varchar(2) DEFAULT 'A',
+  `updated_by` int(11) DEFAULT '1',
+  `created_by` int(1) DEFAULT '1',
+  KEY `clinic_id` (`clinic_id`),
+  KEY `user_id` (`user_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 --
 -- Constraints for table `clinic_user`
 --
