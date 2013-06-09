@@ -23,20 +23,20 @@
 	
 	<definition name="/clinicList.tiles" extends="baseLayout">
 		<put-attribute name="title" value="Clinic List" />
-		<put-attribute name="body" value="/WEB-INF/pages/clinicList.jsp" />
+		<put-attribute name="body" value="/WEB-INF/pages/clinic/listClinic.jsp" />
 	</definition>
 	<definition name="/editClinic.tiles" extends="baseLayout">
 		<put-attribute name="title" value="Add Clinic" />
-		<put-attribute name="body" value="/WEB-INF/pages/editClinic.jsp" />
+		<put-attribute name="body" value="/WEB-INF/pages/clinic/editClinic.jsp" />
 	</definition>
 
 	<definition name="/userList.tiles" extends="baseLayout">
 		<put-attribute name="title" value="User List" />
-		<put-attribute name="body" value="/WEB-INF/pages/user/list.jsp" />
+		<put-attribute name="body" value="/WEB-INF/pages/user/listUser.jsp" />
 	</definition>
 	<definition name="/editUser.tiles" extends="baseLayout">
 		<put-attribute name="title" value="Add User" />
-		<put-attribute name="body" value="/WEB-INF/pages/user/add.jsp" />
+		<put-attribute name="body" value="/WEB-INF/pages/user/editUser.jsp" />
 	</definition>
 
 	<definition name="/login.tiles" extends="loginLayout">

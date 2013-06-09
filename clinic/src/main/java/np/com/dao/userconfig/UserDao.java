@@ -3,6 +3,8 @@ package np.com.dao.userconfig;
 import java.util.List;
 
 import np.com.business.userconfig.User;
+import np.com.dao.clinic.SearchableCRUD;
+import np.com.dao.util.userconfig.UserSearchEntityConfiguration;
 
 /**
  * 
@@ -10,10 +12,8 @@ import np.com.business.userconfig.User;
  * 
  */
 
-public interface UserDao {
+public interface UserDao extends SearchableCRUD<User> {
 
-		public List<User> getAllUsers();
-
-		public void saveUser(User user);
+		public List<User> getAllUsers(UserSearchEntityConfiguration searchCriteria);
 
 }

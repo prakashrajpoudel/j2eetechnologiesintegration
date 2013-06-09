@@ -3,6 +3,7 @@ package np.com.service.userconfig;
 import java.util.List;
 
 import np.com.business.userconfig.User;
+import np.com.dao.util.userconfig.UserSearchEntityConfiguration;
 
 /**
  * 
@@ -12,7 +13,7 @@ import np.com.business.userconfig.User;
 
 public interface  UserService {
 	
-	public List<User> getAllUsers();
+	public List<User> getAllUsers(UserSearchEntityConfiguration searchCriteria);
 	
 	public void saveUser(User user);
 

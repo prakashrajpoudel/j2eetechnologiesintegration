@@ -5,11 +5,17 @@ import java.util.Date;
 import java.util.List;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
+
+import org.apache.commons.lang.StringUtils;
+import org.apache.struts2.ServletActionContext;
 
 import np.com.business.userconfig.User;
+import np.com.dao.util.userconfig.UserSearchEntityConfiguration;
 import np.com.service.clinic.ClinicService;
 import np.com.service.userconfig.UserService;
 
+import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
 
@@ -23,16 +29,10 @@ public class UserManagementAction extends ActionSupport implements
 	private UserService userService;
 	private User user = new User();
 	private List<User> userList = new ArrayList<User>();
-	private ClinicService clinicService;
 
 	@Resource
 	public void setUserService(UserService userService) {
 		this.userService = userService;
-	}
-
-	@Resource
-	public void setClinicService(ClinicService clinicService) {
-		this.clinicService = clinicService;
 	}
 
 	public String saveUser() throws Exception {
@@ -42,7 +42,15 @@ public class UserManagementAction extends ActionSupport implements
 	}
 
 	public String listUser() throws Exception {
-		userList = userService.getAllUsers();
+		HttpServletRequest request = (HttpServletRequest)ActionContext.getContext().get(ServletActionContext.HTTP_REQUEST);
+		String stringName = request.getParameter("name");
+		if (StringUtils.isNotEmpty(stringName)) {
+		   UserSearchEntityConfiguration searchCriteria = new UserSearchEntityConfiguration();
+		   searchCriteria.setFirstName(stringName);
+		   userList = userService.getAllUsers(searchCriteria); 
+		} else {
+		   userList = userService.getAllUsers(null);
+		}
 		return SUCCESS;
 	}
 
