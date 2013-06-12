@@ -35,6 +35,20 @@ public class UserManagementAction extends ActionSupport implements
 		this.userService = userService;
 	}
 
+	public String editUser() throws Exception {
+		HttpServletRequest request = (HttpServletRequest)ActionContext.getContext().get(ServletActionContext.HTTP_REQUEST);
+		long id = Long.parseLong(request.getParameter("id"));
+		user = userService.getUserById(id);
+		return SUCCESS;
+	}
+	
+	public String deleteUser() throws Exception {
+		HttpServletRequest request = (HttpServletRequest)ActionContext.getContext().get(ServletActionContext.HTTP_REQUEST);
+		long id = Long.parseLong(request.getParameter("id"));
+		userService.deleteUser(id);
+		return SUCCESS;
+	}
+	
 	public String saveUser() throws Exception {
 		user.setCreatedDt(new Date());
 		userService.saveUser(user);

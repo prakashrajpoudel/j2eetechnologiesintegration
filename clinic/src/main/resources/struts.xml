@@ -52,6 +52,16 @@
 			<result name="success" type="tiles">/editUser.tiles</result>
 		</action>
 		
+		<action name="editUser" class="np.com.presentation.userconfig.UserManagementAction"
+			method="editUser">
+			<result name="success" type="tiles">/editUser.tiles</result>
+		</action>
+		
+		<action name="deleteUser" class="np.com.presentation.userconfig.UserManagementAction"
+			method="deleteUser">
+			<result name="success" type="redirect">listUser</result>
+		</action>
+		
 		<action name="saveUser" class="np.com.presentation.userconfig.UserManagementAction"
 			method="saveUser">
 			<result name="success" type="redirect">listUser</result>

@@ -39,5 +39,16 @@ public class UserServiceImpl implements UserService {
 	public void saveUser(User user) {
 		userDao.save(user);
 	}
+
+	@Override
+	public User getUserById(long id) {
+		return userDao.getById(id);
+	}
+
+	@Override
+	public void deleteUser(long id) {
+		User user = userDao.getById(id);
+		userDao.delete(user);
+	}
 	
 }

@@ -29,6 +29,6 @@ public interface SearchableCRUD<T> {
 	/**
 	 * get object by id
 	 */
-	public T get(long id);
+	public T getById(long id);
 	
 }

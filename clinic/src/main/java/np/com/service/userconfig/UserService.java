@@ -16,5 +16,9 @@ public interface  UserService {
 	public List<User> getAllUsers(UserSearchEntityConfiguration searchCriteria);
 	
 	public void saveUser(User user);
+	
+	public User getUserById(long id);
+	
+	public void deleteUser(long id);
 
 }

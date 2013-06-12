@@ -51,6 +51,6 @@ public class ClinicServiceImpl implements ClinicService {
 
 	@Override
 	public Clinic getClinicById(long id) {
-		return clinicDao.get(id);
+		return clinicDao.getById(id);
 	}
 }

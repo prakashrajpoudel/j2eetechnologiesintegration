@@ -15,6 +15,18 @@
 				<tr>
 					<td><s:property value="fname" /></td>
 					<td><s:property value="lname" /></td>
+					<td>
+                		<s:url id="editUrl" action="editUser">
+							<s:param name="id" value="%{user_id}"></s:param>
+						</s:url>
+                		<s:a href="%{editUrl}">Edit</s:a>
+                	</td>
+					<td>
+                		<s:url id="deleteUrl" action="deleteUser">
+							<s:param name="id" value="%{user_id}"></s:param>
+						</s:url>
+                		<s:a href="%{deleteUrl}">Delete</s:a>
+                	</td>
 				</tr>
 			</s:iterator>
 		</table>

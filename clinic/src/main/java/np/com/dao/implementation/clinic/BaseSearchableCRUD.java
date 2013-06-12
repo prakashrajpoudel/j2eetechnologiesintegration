@@ -22,7 +22,7 @@ public class BaseSearchableCRUD<T> implements SearchableCRUD<T> {
 	}
 
 	@Override
-	public T get(long id) {
+	public T getById(long id) {
 		return null;
 	}
 

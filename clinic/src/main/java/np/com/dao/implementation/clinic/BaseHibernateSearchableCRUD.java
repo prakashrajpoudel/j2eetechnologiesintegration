@@ -67,7 +67,7 @@ public abstract class BaseHibernateSearchableCRUD<T> implements
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
-	public T get(long id) {
+	public T getById(long id) {
 		return (T) getSessionFactory().getCurrentSession().get(
 				getPersistentClass(), id);
 	}
