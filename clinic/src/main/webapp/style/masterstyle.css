@@ -70,3 +70,21 @@ margin-top: 0;
 color: #FFFF80;
 text-align: right;
 }
+
+.resultDisplayTable {
+
+}
+
+.resultDisplayTable thead {
+border:1px solid;
+background-color: #D1D1E8;
+}
+
+.odd {
+border:1px solid;
+background-color:#CEEBCE;
+}
+
+.resultDisplayTable even {
+
+}

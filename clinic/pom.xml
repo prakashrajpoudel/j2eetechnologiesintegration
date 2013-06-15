@@ -17,6 +17,7 @@
 		<struts.version>2.1.8</struts.version>
 		<mysql.version>5.1.9</mysql.version>
 		<hibernate.version>4.2.0.CR2</hibernate.version>
+		<displaytag.version>1.2</displaytag.version>
 	</properties>
 
 	<dependencies>
@@ -130,6 +131,29 @@
 			<artifactId>standard</artifactId>
 			<version>1.1.2</version>
 		</dependency>
+		<!-- Display Tag -->
+		<dependency>
+			<groupId>displaytag</groupId>
+			<artifactId>displaytag</artifactId>
+			<version>${displaytag.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>displaytag</groupId>
+			<artifactId>displaytag-export-poi</artifactId>
+			<version>${displaytag.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>displaytag</groupId>
+			<artifactId>displaytag-portlet</artifactId>
+			<version>${displaytag.version}</version>
+		</dependency>
+		<!-- JSP API -->
+		<dependency>
+        	<groupId>javax.servlet</groupId>
+        	<artifactId>jsp-api</artifactId>
+        	<version>2.0</version>
+        	<scope>provided</scope>
+    	</dependency>
 		<dependency>
  		 	<groupId>org.apache.struts</groupId>
  			<artifactId>struts2-tiles3-plugin</artifactId>
