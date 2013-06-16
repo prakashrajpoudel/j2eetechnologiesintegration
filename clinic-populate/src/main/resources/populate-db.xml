@@ -68,5 +68,46 @@
 		) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 		</sql>
 	</changeSet>
+	
+	<changeSet id="4" author="bishu">
+		<comment>Creating table role</comment>
+		<sql>
+		  CREATE TABLE IF NOT EXISTS `role` (
+  		 `roleId` int(11) NOT NULL AUTO_INCREMENT,
+ 		 `roleName` varchar(255) NOT NULL,
+ 		 `description` varchar(255) NOT NULL,
+  		`displayName` varchar(255) NOT NULL,
+ 		 PRIMARY KEY (`roleId`)
+		) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
+		</sql>
+	</changeSet>
+	
+	
+	
+	 <changeSet id="5" author="bishu">
+		<comment>Creating table Permission</comment>
+		<sql>
+		
+		CREATE TABLE IF NOT EXISTS `permission` (
+ 		 `permissionId` int(11) NOT NULL AUTO_INCREMENT,
+ 		 `permissionName` varchar(255) NOT NULL,
+ 		 `displayName` varchar(255) NOT NULL,
+ 		 `description` varchar(255) NOT NULL,
+ 		 PRIMARY KEY (`permissionId`)
+		) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+		</sql>
+	</changeSet>
+	
+		
+	
+	 <changeSet id="6" author="bishu">
+		<comment>Creating table rolepermission</comment>
+		<sql>
+	  CREATE TABLE IF NOT EXISTS `rolepermission` (
+	  `roleId` int(11) NOT NULL,
+	  `permissionId` int(11) NOT NULL
+	  ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+		</sql>
+	</changeSet>
 	<!-- <changeSet id="2" author="prakash"> <sql></sql> </changeSet> -->
 </databaseChangeLog>
