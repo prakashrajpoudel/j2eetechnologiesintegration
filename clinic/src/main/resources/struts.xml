@@ -49,7 +49,7 @@
 
 		<action name="addUser" class="np.com.presentation.userconfig.UserManagementAction"
 			method="addUser">
-			<result name="success" type="tiles">/editUser.tiles</result>
+			<result name="success" type="tiles">/addUser.tiles</result>
 		</action>
 		
 		<action name="editUser" class="np.com.presentation.userconfig.UserManagementAction"

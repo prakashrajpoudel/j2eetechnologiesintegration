@@ -49,10 +49,15 @@ public class UserManagementAction extends ActionSupport implements
 	}
 	
 	public String saveUser() throws Exception {
+		//if the user is not the new user, then set the original Password
+		if(user.getId()!=null){
+			user.setPassword(userService.getUserById(user.getId()).getPassword());
+		}
 		user.setCreatedDt(new Date());
 		userService.saveUser(user);
 		return SUCCESS;
 	}
+	
 
 	public String listUser() throws Exception {
 		HttpServletRequest request = (HttpServletRequest)ActionContext.getContext().get(ServletActionContext.HTTP_REQUEST);

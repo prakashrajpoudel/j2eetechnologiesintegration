@@ -35,8 +35,13 @@
 		<put-attribute name="body" value="/WEB-INF/pages/user/listUser.jsp" />
 	</definition>
 	<definition name="/editUser.tiles" extends="baseLayout">
-		<put-attribute name="title" value="Add User" />
+		<put-attribute name="title" value="Edit User" />
 		<put-attribute name="body" value="/WEB-INF/pages/user/editUser.jsp" />
+	</definition>
+	
+	<definition name="/addUser.tiles" extends="baseLayout">
+		<put-attribute name="title" value="Add User" />
+		<put-attribute name="body" value="/WEB-INF/pages/user/addUser.jsp" />
 	</definition>
 
 	<definition name="/login.tiles" extends="loginLayout">
