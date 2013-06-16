@@ -23,8 +23,9 @@ import javax.persistence.Table;
 @Table(name = "user")
 public class User implements Serializable{
 	
+	
 	private static final long serialVersionUID = 1L;
-	private int user_id;
+	private Long id;
 	private String fname;
 	private String mname;
 	private String lname;
@@ -37,12 +38,12 @@ public class User implements Serializable{
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "user_id")
-	public int getUser_id() {
-		return user_id;
+	public Long getId() {
+		return id;
 	}
 
-	public void setUser_id(int user_id) {
-		this.user_id = user_id;
+	public void setId(Long id) {
+		this.id = id;
 	}
 
 	public String getFname() {
@@ -80,7 +81,7 @@ public class User implements Serializable{
 	@Column(name = "created_by")
 	public int getCreatedBy() {
 		return createdBy;
-
+		
 	}
 	public void setCreatedBy(int createdBy) {
 		this.createdBy = createdBy;

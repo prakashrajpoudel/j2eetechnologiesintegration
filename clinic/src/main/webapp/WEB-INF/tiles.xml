@@ -43,4 +43,15 @@
 		<put-attribute name="Login" value="Login" />
 		<put-attribute name="body" value="/WEB-INF/pages/authentication/login.jsp" />
 	</definition>
+	
+	<definition name="/roleList.tiles" extends="baseLayout">
+		<put-attribute name="title" value="Role List" />
+		<put-attribute name="body" value="/WEB-INF/pages/role/listRole.jsp" />
+	</definition>
+	
+	<definition name="/editRole.tiles" extends="baseLayout">
+		<put-attribute name="title" value="Add Role" />
+		<put-attribute name="body" value="/WEB-INF/pages/role/editRole.jsp" />
+	</definition>
+	
 </tiles-definitions>

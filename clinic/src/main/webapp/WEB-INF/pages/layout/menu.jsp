@@ -20,6 +20,13 @@
 			<li ><s:url id="addURL" action="addUser" /> <s:a href="%{addURL}">Add User</s:a></li>
 		</ul>
 	</li>
+	
+	<li class="top"><s:url id="listRole" action="listRole" /> <s:a href="%{listRole}" cssClass="top_link"><span class="down">Role</span></s:a>
+	<ul class="sub">
+			<li><s:url id="listRole" action="listRole" /> <s:a href="%{listRole}" >Role List</s:a></li>
+			<li ><s:url id="addURL" action="addRole" /> <s:a href="%{addURL}">Add Role</s:a></li>
+		</ul>
+	</li>
 
 	<li class="top"><a href="#nogo27" id="contacts" class="top_link"><span class="down">Sample Menu</span></a>
 		<ul class="sub">

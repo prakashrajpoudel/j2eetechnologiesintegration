@@ -74,7 +74,11 @@ public abstract class BaseHibernateSearchableCRUD<T> implements
 
 	@Override
 	public void save(T t) {
-		getSessionFactory().getCurrentSession().saveOrUpdate(t);
+		try {
+			getSessionFactory().getCurrentSession().saveOrUpdate(t);
+		} catch (HibernateException e) {
+			e.printStackTrace();
+		}
 	}
 
 	@Override

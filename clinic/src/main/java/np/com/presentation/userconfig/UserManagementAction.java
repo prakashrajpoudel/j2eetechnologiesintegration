@@ -12,9 +12,7 @@ import org.apache.struts2.ServletActionContext;
 
 import np.com.business.userconfig.User;
 import np.com.dao.util.userconfig.UserSearchEntityConfiguration;
-import np.com.service.clinic.ClinicService;
 import np.com.service.userconfig.UserService;
-
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
@@ -23,6 +21,7 @@ import com.opensymphony.xwork2.ModelDriven;
  * @author bishu
  * 
  */
+
 public class UserManagementAction extends ActionSupport implements
 		ModelDriven<User> {
 	private static final long serialVersionUID = 1L;

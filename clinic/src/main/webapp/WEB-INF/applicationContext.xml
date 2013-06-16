@@ -23,6 +23,12 @@
 	<bean id="userService" class="np.com.service.implementation.userconfig.UserServiceImpl" />
 	<bean id="userDao" class="np.com.dao.implementation.userconfig.HibernateUserDaoImpl" />
 	
+	
+	<!-- Role related Beans -->
+	<bean id="roleAction" class="np.com.presentation.authorization.RoleManagementAction" />
+	<bean id="roleService" class="np.com.service.implementation.authorization.RoleServiceImpl" />
+	<bean id="roleDao" class="np.com.dao.implementation.authorization.HibernateRoleDaoImpl" />
+	
 	<!-- Login related beans -->
 	<bean id="loginAction" class="np.com.presentation.authentication.LoginManagementAction" />
 	

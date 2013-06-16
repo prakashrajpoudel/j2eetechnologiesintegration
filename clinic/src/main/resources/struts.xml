@@ -67,6 +67,41 @@
 			<result name="success" type="redirect">listUser</result>
 		</action>
 		
+		
+		
+		<!--  Role Controllers -->
+		<action name="listRole" class="np.com.presentation.authorization.RoleManagementAction"
+			method="listRole">
+			<result name="success" type="tiles">/roleList.tiles</result>
+		</action>
+
+		<action name="addRole" class="np.com.presentation.authorization.RoleManagementAction"
+			method="addRole">
+			<result name="success" type="tiles">/editRole.tiles</result>
+		</action>
+		
+		<action name="editRole" class="np.com.presentation.authorization.RoleManagementAction"
+			method="editRole">
+			<result name="success" type="tiles">/editRole.tiles</result>
+		</action>
+		
+		<action name="deleteRole" class="np.com.presentation.authorization.RoleManagementAction"
+			method="deleteRole">
+			<result name="success" type="redirect">listRole</result>
+		</action>
+		
+		<action name="saveRole" class="np.com.presentation.authorization.RoleManagementAction"
+			method="saveRole">
+			<result name="success" type="redirect">listRole</result>
+		</action>
+		
+		
+		
+		
+		
+		
+		
+		
 		<!-- Login Controller -->
 		<action name="login" class="np.com.presentation.authentication.LoginManagementAction"
 			method="login">
