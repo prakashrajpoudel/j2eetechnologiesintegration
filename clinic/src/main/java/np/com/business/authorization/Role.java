@@ -14,6 +14,8 @@ import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 import javax.persistence.JoinColumn;
 
+import np.com.business.userconfig.User;
+
 /**
  * 
  * @author bishu
@@ -29,6 +31,7 @@ public class Role implements Serializable {
 	private String displayName;
 	private String description;
 	private List<Permission> permissionList;
+	private List<User> userList;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -72,6 +75,15 @@ public class Role implements Serializable {
 
 	public void setPermissionList(List<Permission> permissionList) {
 		this.permissionList = permissionList;
+	}
+	
+	@ManyToMany( mappedBy = "roleList")
+	public List<User> getUserList() {
+		return userList;
+	}
+
+	public void setUserList(List<User> userList) {
+		this.userList = userList;
 	}
 
 	@Override

@@ -1,8 +1,10 @@
 package np.com.business.userconfig;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
@@ -12,8 +14,13 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+import np.com.business.authorization.Role;
 
 /**
  * 
@@ -37,6 +44,7 @@ public class User implements Serializable{
 	private String email;
 
 	private Set<ClinicUser> clinicUserList = new HashSet<ClinicUser>(0);
+	private List<Role>roleList= new ArrayList<Role>();
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -132,4 +140,13 @@ public class User implements Serializable{
 		this.clinicUserList = clinicUserList;
 	}
 
+	@ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	@JoinTable(name = "userrole", joinColumns = { @JoinColumn(name = "userId") }, inverseJoinColumns = { @JoinColumn(name = "roleId") })
+	public List<Role> getRoleList() {
+		return roleList;
+	}
+
+	public void setRoleList(List<Role> roleList) {
+		this.roleList = roleList;
+	}
 }

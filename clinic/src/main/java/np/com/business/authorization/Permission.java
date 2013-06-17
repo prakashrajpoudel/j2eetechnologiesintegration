@@ -53,7 +53,7 @@ public class Permission implements Serializable {
 	public void setDescription(String description) {
 		this.description = description;
 	}
-
+	
 	@ManyToMany( mappedBy = "permissionList")
 	public List<Role> getRoleList() {
 		return roleList;
