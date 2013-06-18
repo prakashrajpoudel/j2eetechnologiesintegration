@@ -8,6 +8,13 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title><tiles:insertAttribute name="title" ignore="true" /></title>
 <link rel="icon" type="image/png" href="<s:url value="/images/faviicon.png"/>">
+<link rel="stylesheet" type="text/css" href="<s:url value="/style/masterstyle.css"/>"/> 
+<link rel="stylesheet" type="text/css" href="<s:url value="/style/reset.css"/>"/> 
+<link rel="stylesheet" type="text/css" href="<s:url value="/style/core.css"/>"/> 
+<link rel="stylesheet" type="text/css" href="<s:url value="/style/cmxformTemplate.css"/>"/> 
+<link rel="stylesheet" type="text/css" href="<s:url value="/style/cmxform.css"/>"/> 
+<script src="<s:url value="/js/jquery-1.9.1.min.js"/>"></script>
+<script src="<s:url value="/js/jquery.validate.js"/>"></script>
 </head>
 <body>
 

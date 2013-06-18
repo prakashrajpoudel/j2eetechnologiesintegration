@@ -22,11 +22,6 @@ width: 100%; /*Width of main container*/
 margin: 0 auto; 
 }
 
-#header{
-background: white;
-height: 130px;
-}
-
 #header h1{
 margin: 0;
 }
@@ -62,7 +57,9 @@ color: #FFFF80;
 }
 
 .innertube{
-margin-top: 0;
+	margin-top: 0;
+	height: 130px;
+	background-image:url('../images/header.jpg');
 }
 
 
