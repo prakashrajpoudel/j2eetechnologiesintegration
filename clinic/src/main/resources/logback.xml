@@ -35,6 +35,10 @@
 		<appender-ref ref="FILE" />
 	</logger>
 
+	<logger name="np.com" level="WARN" >
+		<appender-ref ref="FILE" />
+	</logger>
+	
 	<root level="INFO">
 		<appender-ref ref="STDOUT" />
 		<!-- 

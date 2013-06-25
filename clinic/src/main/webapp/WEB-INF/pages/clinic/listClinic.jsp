@@ -9,10 +9,9 @@
    <c:choose>
 	<c:when test="${clinicList.size() > 0}">
 	<display:table class="resultDisplayTable" export="true"  id="clinicData" name="clinicList" requestURI="/listClinic" pagesize="10" >
-			<display:setProperty name="export" value="true" />
         	<display:column property="name" title="Name" sortable="true"   />
             <display:column property="code" title="Code" sortable="true"  />
-            <display:column > 
+            <display:column media="html"> 
 		            	<s:url id="editUrl" action="editClinic">
 					<s:param name="id">${clinicData.id}</s:param>
 				</s:url>
@@ -22,6 +21,7 @@
 				</s:url>
                 <s:a href="%{deleteUrl}">Delete</s:a>
     		</display:column>
+    		<display:setProperty name="paging.banner.placement" value="bottom" />
 	</display:table>
 	</c:when>
 	<c:otherwise>

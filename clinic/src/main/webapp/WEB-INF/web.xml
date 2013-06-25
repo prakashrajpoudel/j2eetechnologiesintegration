@@ -12,6 +12,15 @@
 	<param-value>/WEB-INF/SpringBeans.xml</param-value>
   </context-param>
  
+   <!--  display tag -->
+  <filter>
+    <filter-name>ResponseOverrideFilter</filter-name>
+    <filter-class>org.displaytag.filter.ResponseOverrideFilter</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>ResponseOverrideFilter</filter-name>
+    <url-pattern>/*</url-pattern>
+   </filter-mapping>
    <filter>
 		<filter-name>springSecurityFilterChain</filter-name>
 		<filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
