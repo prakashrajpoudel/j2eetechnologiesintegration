@@ -20,22 +20,22 @@
 	</appender>
 
 	<appender  name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
-			<File>D:\other\logs\logFile.log</File>
+			<File>/other/tomcat/logs/logFile.log</File>
 		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-			<FileNamePattern>D:\other\logs\logFile.%d{yyyy-MM-dd}.log</FileNamePattern>
+			<FileNamePattern>/other/tomcat/logs/logFile.%d{yyyy-MM-dd}.log</FileNamePattern>
 		</rollingPolicy>
  
 		<layout class="ch.qos.logback.classic.PatternLayout">
 			<Pattern>%-4relative [%thread] %-5level %logger{35} - %msg%n</Pattern>
 		</layout>
 	</appender>
-	<logger name="org.eclipse.jetty.util.log" level="WARN" />
+	<logger name="org.eclipse.jetty.util.log" level="FINE" />
 	
-	<logger name="org.apache" level="WARN" >
+	<logger name="org.apache" level="FINE" >
 		<appender-ref ref="FILE" />
 	</logger>
 
-	<logger name="np.com" level="WARN" >
+	<logger name="np.com" level="FINE" >
 		<appender-ref ref="FILE" />
 	</logger>
 	

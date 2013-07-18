@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.annotation.Resource;
 
 import org.apache.commons.lang.StringUtils;
+import org.apache.log4j.Logger;
 import org.apache.struts2.ServletActionContext;
 
 import np.com.business.clinic.Clinic;
@@ -26,6 +27,7 @@ public class ClinicManagementAction extends ActionSupport implements ModelDriven
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
+	private static final Logger logger = Logger.getLogger(ClinicManagementAction.class);
 	private List<Clinic> clinicList = new ArrayList<Clinic>();
 	private ClinicService clinicService;
 	private Clinic clinic = new Clinic();
@@ -41,6 +43,7 @@ public class ClinicManagementAction extends ActionSupport implements ModelDriven
 	}
 	
 	public String listClinic() throws Exception {
+		logger.debug("Testing .......");
 		HttpServletRequest request = (HttpServletRequest)ActionContext.getContext().get(ServletActionContext.HTTP_REQUEST);
 		String stringName = request.getParameter("name");
 		if (StringUtils.isEmpty(stringName)) { 
