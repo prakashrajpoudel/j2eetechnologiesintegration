@@ -1,36 +1,28 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib prefix="s" uri="/struts-tags"%>
+<%@taglib uri="http://displaytag.sf.net" prefix="display" %>
 <s:form>
 	<s:textfield name="name" label="Search :" />
 	<s:submit />
 </s:form>
-	<c:choose>
-		<c:when test="${userList.size() > 0}">
-		<table >
-			<tr>
-				<th>First Name</th>
-				 <th>Last Name</th>
-			</tr>
-			<s:iterator value="userList" status="userStatus">
-				<tr>
-					<td><s:property value="fname" /></td>
-					<td><s:property value="lname" /></td>
-					
-					<td>
+   <c:choose>
+	<c:when test="${userList.size() > 0}">
+	<display:table class="resultDisplayTable" export="true"  id="userData" name="userList" requestURI="/listUser" pagesize="10" >
+        	<display:column property="fname" title="First Name" sortable="true"   />
+            <display:column property="lname" title="Last Name" sortable="true"  />
+            <display:column media="html"> 
                 		<s:url id="editUrl" action="editUser">
-							<s:param name="id" value="%{id}"></s:param>
+							<s:param name="id">${userData.id}</s:param>
 						</s:url>
                 		<s:a href="%{editUrl}">Edit</s:a>
-                	</td>
-					<td>
+                		&nbsp;
                 		<s:url id="deleteUrl" action="deleteUser">
-							<s:param name="id" value="%{id}"></s:param>
+							<s:param name="id">${userData.id}</s:param>
 						</s:url>
                 		<s:a href="%{deleteUrl}">Delete</s:a>
-                	</td>
-				</tr>
-			</s:iterator>
-		</table>
+    		</display:column>
+    		<display:setProperty name="paging.banner.placement" value="bottom" />
+	</display:table>
 	</c:when>
 	<c:otherwise>
 		no user found.
