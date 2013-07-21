@@ -9,6 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 import np.com.business.userconfig.User;
 import np.com.dao.userconfig.UserDao;
 import np.com.dao.util.userconfig.UserSearchEntityConfiguration;
+import np.com.exception.BaseException;
 import np.com.service.userconfig.UserService;
 
 @Transactional
@@ -36,7 +37,7 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public void saveUser(User user) {
+	public void saveUser(User user) throws Exception {
 		userDao.save(user);
 	}
 

@@ -65,6 +65,7 @@
 		<action name="saveUser" class="np.com.presentation.userconfig.UserManagementAction"
 			method="saveUser">
 			<result name="success" type="redirect">listUser</result>
+			<result name="input" type="tiles">/addUser.tiles</result>
 		</action>
 		
 		

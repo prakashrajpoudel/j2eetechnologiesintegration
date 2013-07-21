@@ -8,10 +8,12 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 
 import org.apache.commons.lang.StringUtils;
+import org.apache.log4j.Logger;
 import org.apache.struts2.ServletActionContext;
 
 import np.com.business.userconfig.User;
 import np.com.dao.util.userconfig.UserSearchEntityConfiguration;
+import np.com.exception.BaseException;
 import np.com.service.userconfig.UserService;
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
@@ -25,6 +27,7 @@ import com.opensymphony.xwork2.ModelDriven;
 public class UserManagementAction extends ActionSupport implements
 		ModelDriven<User> {
 	private static final long serialVersionUID = 1L;
+	private static final Logger logger = Logger.getLogger(UserManagementAction.class);
 	private UserService userService;
 	private User user = new User();
 	private List<User> userList = new ArrayList<User>();
@@ -54,7 +57,15 @@ public class UserManagementAction extends ActionSupport implements
 			user.setPassword(userService.getUserById(user.getId()).getPassword());
 		}
 		user.setCreatedDt(new Date());
-		userService.saveUser(user);
+		try {
+			userService.saveUser(user);
+		} catch (BaseException e) {
+			logger.debug("Unable to save" + e.getMessage());
+			return INPUT;
+		}catch (Exception e) {
+			logger.debug("Unable to save" + e.getMessage());
+			return INPUT;
+		}
 		return SUCCESS;
 	}
 	

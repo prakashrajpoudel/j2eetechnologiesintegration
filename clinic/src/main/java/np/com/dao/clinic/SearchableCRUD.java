@@ -2,6 +2,8 @@ package np.com.dao.clinic;
 
 import java.util.List;
 
+import np.com.exception.BaseException;
+
 
 public interface SearchableCRUD<T> {
 
@@ -19,7 +21,7 @@ public interface SearchableCRUD<T> {
 	/**
 	 * Saves dataType T
 	 */
-	public void save(T t);
+	public void save(T t) throws BaseException, Exception;
 	
 	/**
 	 * Deletes dataType T

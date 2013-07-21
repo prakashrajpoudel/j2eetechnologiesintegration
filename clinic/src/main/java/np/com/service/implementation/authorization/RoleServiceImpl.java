@@ -20,7 +20,7 @@ public class RoleServiceImpl implements RoleService {
 	}
 
 	@Override
-	public void saveRole(Role role) {
+	public void saveRole(Role role) throws Exception {
 
 		roleDao.save(role);
 	}

@@ -15,7 +15,7 @@ public interface  UserService {
 	
 	public List<User> getAllUsers(UserSearchEntityConfiguration searchCriteria);
 	
-	public void saveUser(User user);
+	public void saveUser(User user) throws Exception;
 	
 	public User getUserById(long id);
 	

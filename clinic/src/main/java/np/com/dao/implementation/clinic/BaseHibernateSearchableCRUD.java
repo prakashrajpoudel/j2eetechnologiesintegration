@@ -7,15 +7,19 @@ import java.util.List;
 import javax.annotation.Resource;
 
 import org.apache.commons.lang.StringUtils;
+import org.apache.log4j.Logger;
 import org.hibernate.HibernateException;
 import org.hibernate.Query;
 import org.hibernate.SessionFactory;
+import org.hibernate.exception.ConstraintViolationException;
 
 import np.com.dao.clinic.SearchableCRUD;
+import np.com.exception.BaseException;
 
 public abstract class BaseHibernateSearchableCRUD<T> implements
 		SearchableCRUD<T> {
 
+	private static final Logger logger = Logger.getLogger(BaseHibernateSearchableCRUD.class);
 	private Class<T> persistentClass;
 	private SessionFactory sessionFactory;
 
@@ -73,8 +77,15 @@ public abstract class BaseHibernateSearchableCRUD<T> implements
 	}
 
 	@Override
-	public void save(T t) {
-			getSessionFactory().getCurrentSession().saveOrUpdate(t);
+	public void save(T t) throws BaseException, Exception {
+			try {
+				getSessionFactory().getCurrentSession().saveOrUpdate(t);
+			} catch (ConstraintViolationException e) {
+				logger.debug("ERROR : " + e.getMessage());
+				throw new BaseException(e.getCause());
+			} catch (Exception e) {
+				logger.debug(": " + e.getMessage());
+			}
 	}
 
 	@Override

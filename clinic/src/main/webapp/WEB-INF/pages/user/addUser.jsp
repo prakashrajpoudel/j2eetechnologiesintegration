@@ -1,10 +1,6 @@
 <%@ taglib prefix="s" uri="/struts-tags"%>
 
 <script>
-$.validator.setDefaults({
-	submitHandler: function() { alert("submitted!"); }
-});
-
 $().ready(function() {
 
 	// validate signup form on keyup and submit
@@ -60,17 +56,6 @@ $().ready(function() {
 		}
 	});
 
-	//code to hide topic selection, disable for demo
-	var newsletter = $("#newsletter");
-	// newsletter topics are optional, hide at first
-	var inital = newsletter.is(":checked");
-	var topics = $("#newsletter_topics")[inital ? "removeClass" : "addClass"]("gray");
-	var topicInputs = topics.find("input").attr("disabled", !inital);
-	// show when newsletter is checked
-	newsletter.click(function() {
-		topics[this.checked ? "removeClass" : "addClass"]("gray");
-		topicInputs.attr("disabled", !this.checked);
-	});
 });
 </script>
 
@@ -91,8 +76,8 @@ $().ready(function() {
 				<s:textfield name="mname" label="Middle Name " />
 				<s:textfield name="lname" label="Last Name " cssClass="required" />
 				<s:textfield name="username" label="User Name " />
-				<s:textfield name="password" label="Password " />
-				<s:textfield name="confirmPassword" label="Confirm Password " />
+				<s:password name="password" label="Password " />
+				<s:password name="confirmPassword" label="Confirm Password " />
 				<s:textfield name="email" label="Email " />
 				<s:textfield name="confirmEmail" label="Confirm Email " />
 				<s:hidden name="status" value="A" />

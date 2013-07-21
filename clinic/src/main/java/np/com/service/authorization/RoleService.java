@@ -6,7 +6,7 @@ import np.com.business.authorization.Role;
 
 public interface RoleService {
 
-	public void saveRole(Role role);
+	public void saveRole(Role role) throws Exception;
 
 	public void deleteRole(long id);
 

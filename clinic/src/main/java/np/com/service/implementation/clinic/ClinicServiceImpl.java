@@ -12,6 +12,7 @@ import org.springframework.transaction.annotation.Transactional;
 import np.com.business.clinic.Clinic;
 import np.com.dao.clinic.ClinicDao;
 import np.com.dao.util.clinic.ClinicSearchEntityConfiguration;
+import np.com.exception.BaseException;
 import np.com.service.clinic.ClinicService;
 
 /**
@@ -40,7 +41,7 @@ public class ClinicServiceImpl implements ClinicService {
 	}
 	
 	@Override
-	public void saveClinic(Clinic clinic) {
+	public void saveClinic(Clinic clinic) throws Exception, BaseException {
 		clinicDao.save(clinic);
 	}
 	
