@@ -44,7 +44,7 @@ public class User implements Serializable{
 	private String email;
 
 	private Set<ClinicUser> clinicUserList = new HashSet<ClinicUser>(0);
-	private List<Role>roleList= new ArrayList<Role>();
+	private List<Role> roleList= new ArrayList<Role>();
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)

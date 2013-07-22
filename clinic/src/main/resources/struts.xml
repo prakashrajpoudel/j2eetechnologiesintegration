@@ -54,7 +54,7 @@
 		
 		<action name="editUser" class="np.com.presentation.userconfig.UserManagementAction"
 			method="editUser">
-			<result name="success" type="tiles">/editUser.tiles</result>
+			<result name="success" type="tiles">/addUser.tiles</result>
 		</action>
 		
 		<action name="deleteUser" class="np.com.presentation.userconfig.UserManagementAction"

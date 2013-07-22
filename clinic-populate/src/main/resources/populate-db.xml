@@ -3,8 +3,8 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
 	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-2.0.xsd
     http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
-    <preConditions>
-		<dbms type="mysql"/>
+	<preConditions>
+		<dbms type="mysql" />
 	</preConditions>
 	<changeSet id="1" author="prakash">
 		<comment>Creating a sample clinic</comment>
@@ -20,115 +20,121 @@
 			</column>
 		</createTable>
 	</changeSet>
-	
-	
+
+
 	<changeSet id="1" author="bishu">
 		<comment>User Table</comment>
 		<sql>
-		CREATE TABLE IF NOT EXISTS `user` (
-  		`user_id` int(11) NOT NULL AUTO_INCREMENT,
-  		`fname` varchar(50) NOT NULL,
-  		`mname` varchar(50) NOT NULL,
-  		`lname` varchar(50) NOT NULL,
-  		`status` varchar(2) NOT NULL,
-  		`created_dt` datetime NOT NULL,
- 		 `updated_dt` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00' ON UPDATE CURRENT_TIMESTAMP,
- 		 `created_by` int(11) NOT NULL,
- 		 PRIMARY KEY (`user_id`)
-		) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+			CREATE TABLE IF NOT EXISTS `user` (
+			`user_id` int(11) NOT NULL AUTO_INCREMENT,
+			`fname` varchar(50) NOT NULL,
+			`mname` varchar(50) NOT NULL,
+			`lname` varchar(50) NOT NULL,
+			`status` varchar(2) NOT NULL,
+			`created_dt` datetime NOT NULL,
+			`updated_dt` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00' ON UPDATE
+			CURRENT_TIMESTAMP,
+			`created_by` int(11) NOT NULL,
+			PRIMARY KEY (`user_id`)
+			) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 		</sql>
-		<!-- 		<createTable tableName="clinic">
-			<column name="id" type="int" autoIncrement="true">
-				<constraints primaryKey="true" nullable="false" />
-			</column>
-			<column name="name" type="varchar(50)">
-				<constraints nullable="false" />
-			</column>
-			<column name="code" type="varchar(50)">
-				<constraints nullable="false" />
-			</column>
-		</createTable> -->
+		<!-- <createTable tableName="clinic"> <column name="id" type="int" autoIncrement="true"> 
+			<constraints primaryKey="true" nullable="false" /> </column> <column name="name" 
+			type="varchar(50)"> <constraints nullable="false" /> </column> <column name="code" 
+			type="varchar(50)"> <constraints nullable="false" /> </column> </createTable> -->
 	</changeSet>
-	
-		<changeSet id="3" author="bishu">
+
+	<changeSet id="3" author="bishu">
 		<comment>Creating clinic user mapping table</comment>
 		<sql>
 		truncate table user;
 		truncate table clinic;
 			CREATE TABLE IF NOT EXISTS `clinic_user` (
-		  `clinic_id` int(11) NOT NULL,
-		  `user_id` int(11) NOT NULL,
-		  `mapped_dt` datetime DEFAULT NULL,
-		  `updated_dt` timestamp NULL DEFAULT '0000-00-00 00:00:00' ON UPDATE CURRENT_TIMESTAMP,
-		  `status` varchar(2) DEFAULT 'A',
-		  `updated_by` int(11) DEFAULT '1',
-		  `created_by` int(1) DEFAULT '1',
-		  KEY `clinic_id` (`clinic_id`),
-		  KEY `user_id` (`user_id`)
-		) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+			`clinic_id` int(11) NOT NULL,
+			`user_id` int(11) NOT NULL,
+			`mapped_dt` datetime DEFAULT NULL,
+			`updated_dt` timestamp NULL DEFAULT '0000-00-00 00:00:00' ON UPDATE
+			CURRENT_TIMESTAMP,
+			`status` varchar(2) DEFAULT 'A',
+			`updated_by` int(11) DEFAULT '1',
+			`created_by` int(1) DEFAULT '1',
+			KEY `clinic_id` (`clinic_id`),
+			KEY `user_id` (`user_id`)
+			) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 		</sql>
 	</changeSet>
-	
+
 	<changeSet id="4" author="bishu">
 		<comment>Creating table role</comment>
 		<sql>
-		  CREATE TABLE IF NOT EXISTS `role` (
-  		 `roleId` int(11) NOT NULL AUTO_INCREMENT,
- 		 `roleName` varchar(255) NOT NULL,
- 		 `description` varchar(255) NOT NULL,
-  		`displayName` varchar(255) NOT NULL,
- 		 PRIMARY KEY (`roleId`)
-		) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
+			CREATE TABLE IF NOT EXISTS `role` (
+			`roleId` int(11) NOT NULL AUTO_INCREMENT,
+			`roleName` varchar(255) NOT NULL,
+			`description` varchar(255) NOT NULL,
+			`displayName` varchar(255) NOT NULL,
+			PRIMARY KEY (`roleId`)
+			) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
 		</sql>
 	</changeSet>
-	
-	
-	
-	 <changeSet id="5" author="bishu">
+
+
+
+	<changeSet id="5" author="bishu">
 		<comment>Creating table Permission</comment>
 		<sql>
-		
-		CREATE TABLE IF NOT EXISTS `permission` (
- 		 `permissionId` int(11) NOT NULL AUTO_INCREMENT,
- 		 `permissionName` varchar(255) NOT NULL,
- 		 `displayName` varchar(255) NOT NULL,
- 		 `description` varchar(255) NOT NULL,
- 		 PRIMARY KEY (`permissionId`)
-		) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+			CREATE TABLE IF NOT EXISTS `permission` (
+			`permissionId` int(11) NOT NULL AUTO_INCREMENT,
+			`permissionName` varchar(255) NOT NULL,
+			`displayName` varchar(255) NOT NULL,
+			`description` varchar(255) NOT NULL,
+			PRIMARY KEY (`permissionId`)
+			) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 		</sql>
 	</changeSet>
-	
-	 <changeSet id="6" author="bishu">
-	<comment>Creating table rolepermission</comment>
-	<sql>
-	  CREATE TABLE IF NOT EXISTS `rolepermission` (
-	  `roleId` int(11) NOT NULL,
-	  `permissionId` int(11) NOT NULL
-	  ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+	<changeSet id="6" author="bishu">
+		<comment>Creating table rolepermission</comment>
+		<sql>
+			CREATE TABLE IF NOT EXISTS `rolepermission` (
+			`roleId` int(11) NOT NULL,
+			`permissionId` int(11) NOT NULL
+			) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 		</sql>
 	</changeSet>
-	
-	 <changeSet id="7" author="bishu">
-	<comment>Altering User Table</comment>
-	<sql>
-		DROP TABLE IF EXISTS user;
-		 CREATE TABLE IF NOT EXISTS `user` (
-	  `user_id` int(11) NOT NULL AUTO_INCREMENT,
-	  `fname` varchar(50) NOT NULL,
-	  `mname` varchar(50) NOT NULL,
-	  `lname` varchar(50) NOT NULL,
-	  `status` varchar(2) NOT NULL,
-	  `created_dt` datetime DEFAULT NULL,
-	  `updated_dt` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00' ON UPDATE CURRENT_TIMESTAMP,
-	  `created_by` int(11) NOT NULL,
-	  `username` varchar(255) NOT NULL,
-	  `password` varchar(255) NOT NULL,
-	  `email` varchar(255) NOT NULL,
-	  PRIMARY KEY (`user_id`),
-	  UNIQUE KEY `username` (`username`),
-	  UNIQUE KEY `email` (`email`)
-	) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+
+	<changeSet id="7" author="bishu">
+		<comment>Altering User Table</comment>
+		<sql>
+			DROP TABLE IF EXISTS user;
+			CREATE TABLE IF NOT EXISTS `user` (
+			`user_id` int(11) NOT NULL AUTO_INCREMENT,
+			`fname` varchar(50) NOT NULL,
+			`mname` varchar(50) NOT NULL,
+			`lname` varchar(50) NOT NULL,
+			`status` varchar(2) NOT NULL,
+			`created_dt` datetime DEFAULT NULL,
+			`updated_dt` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00' ON UPDATE
+			CURRENT_TIMESTAMP,
+			`created_by` int(11) NOT NULL,
+			`username` varchar(255) NOT NULL,
+			`password` varchar(255) NOT NULL,
+			`email` varchar(255) NOT NULL,
+			PRIMARY KEY (`user_id`),
+			UNIQUE KEY `username` (`username`),
+			UNIQUE KEY `email` (`email`)
+			) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
 		</sql>
 	</changeSet>
-	<!-- <changeSet id="2" author="prakash"> <sql></sql> </changeSet> -->
+	<changeSet id="2" author="prakash">
+	<comment> Adding user role table</comment>
+		<sql>
+					DROP TABLE IF EXISTS userrole;
+			CREATE TABLE IF NOT EXISTS `userrole` (
+			`userId` int(11) NOT NULL,
+			`roleId` int(11) NOT NULL
+			) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+		</sql>
+	</changeSet>
 </databaseChangeLog>
