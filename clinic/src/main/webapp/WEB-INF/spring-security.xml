@@ -17,9 +17,11 @@
 
 	<authentication-manager>
 		<authentication-provider>
-			<user-service>
+<!-- 			<user-service>
 				<user name="admin" password="123456" authorities="ROLE_USER" />
 			</user-service>
+			 -->
+			<jdbc-user-service data-source-ref='myDataSource' users-by-username-query='select username,password, true as enabled from user where username=?' authorities-by-username-query='select user.username , permission.permissionName as authorities from user join userrole on user.user_id = userrole.userId  join rolepermission on userrole.roleId = rolepermission.roleId join permission on permission.permissionId = rolepermission.permissionId  where user.username = ? '/>
 		</authentication-provider>
 	</authentication-manager>
 
